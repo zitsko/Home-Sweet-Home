@@ -5,6 +5,8 @@ const connectionParams = {
 };
 const uri =
   "mongodb+srv://nikoletanektarios:123@cluster0.y6tnhft.mongodb.net/?retryWrites=true&w=majority";
+//we need to name the dB in connection uri after net/
+
 
 const connection = mongoose
   .connect(uri, connectionParams)
