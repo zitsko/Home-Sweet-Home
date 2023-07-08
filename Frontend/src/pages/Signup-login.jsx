@@ -1,11 +1,13 @@
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function SignupLoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -28,7 +30,7 @@ export default function SignupLoginPage() {
       console.log("Signup:", response.data);
     } catch (error) {
       // Handle signup error
-      setErrorMessage(error.response.data.msg);
+      setErrorMessage("Please write a valid username");
     }
   };
 
@@ -43,9 +45,11 @@ export default function SignupLoginPage() {
 
       // Handle successful login response
       console.log("Login:", response.data);
+      navigate("/homes");
     } catch (error) {
       // Handle login error
-      setErrorMessage(error.response.data.msg);
+      console.log(error);
+      setErrorMessage("Incorrect password or username");
     }
   };
 
@@ -57,7 +61,7 @@ export default function SignupLoginPage() {
       <Form>
         {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
         <Form.Group controlId="formUsername">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control
             type="username"
             placeholder="Enter username"
@@ -65,7 +69,6 @@ export default function SignupLoginPage() {
             onChange={handleUsernameChange}
           />
         </Form.Group>
-
         <Form.Group controlId="formPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -75,11 +78,9 @@ export default function SignupLoginPage() {
             onChange={handlePasswordChange}
           />
         </Form.Group>
-
         <Button variant="primary" type="submit" onClick={handleSignup}>
           Sign up
         </Button>
-
         <Button variant="primary" type="submit" onClick={handleLogin}>
           Log in
         </Button>
