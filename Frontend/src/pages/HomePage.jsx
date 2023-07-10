@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import CardModel from "../components/CardModel";
 export default function Home() {
   //var params = useParams();
@@ -36,6 +36,36 @@ export default function Home() {
   //THE USER CAN DELETE A HOME
 
   //THE USER CAN GET ALL THE HOMES
+  function Homes() {
+    axios.get("http://localhost:3000/homes/").then(({ data }) => {
+      console.log("this is the home", data);
+      setHomeList(data);
+      settitle(data.title);
+      settext(data.text);
+      setimage(data.image);
+      
+    });
+  }
+
+  useEffect(() => {
+    Homes();
+  }, []);
+
+  function updateHome(){
+   const{id} = useParams()
+   const [title, settitle] = useState("");
+   const [image, setimage] = useState("");
+   const [text, settext] = useState("");
+
+   axios.put(`http://localhost:3000/homes/ ${id}`)
+   .then(({ data }) => {
+    console.log("this is the home", data);
+    setHomeList(data);
+    settitle(data.title);
+    settext(data.text);
+    setimage(data.image);
+  });
+
   return (
     <div className="HomePage">
       <div className="pagename">
@@ -64,6 +94,7 @@ export default function Home() {
           placeholder="Text"
         />
         <button onClick={addHome}>Add a home</button>
+        <button onClick={updateHome}>Update</button>
         <div className="home-cards">
           {homeList.map((card, index) => (
             <CardModel
@@ -77,4 +108,5 @@ export default function Home() {
       </div>
     </div>
   );
+}
 }
