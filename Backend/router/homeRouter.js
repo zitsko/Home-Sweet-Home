@@ -6,7 +6,7 @@ const router = express.Router();
 
 //Create
 
-router.post("/", async (req, res) => {
+router.post("/post", async (req, res) => {
   const home = new HomeModel(req.body); //what we can taking from user
   //we create a homemodel inside to our DB,and after we try catch method we save the new home model inside the DB,but if something goes wrong we catch it with the catch error.
   try {
@@ -16,6 +16,7 @@ router.post("/", async (req, res) => {
     res.status(500).json(error);
   }
 });
+
 //Update method
 router.put("/:id", async (req, res) => {
   try {
@@ -51,7 +52,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //get method all homes
-router.get("/", async (req, res) => {
+router.get("/homepage", async (req, res) => {
   // await verifyUser(req, res);
   try {
     const homes = await HomeModel.find();

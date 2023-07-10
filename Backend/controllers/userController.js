@@ -40,21 +40,19 @@ var userLogin = async (req, res) => {
 var verifyUser = async (req, res) => {
   var payload;
   if (!req.body.token) {
-    res.send({ msg: false });
+    return res.send({ msg: false });
   }
   try {
-    console.log(req.body.token);
     payload = jwt.verify(req.body.token, "greenfield");
-    console.log(payload);
   } catch (err) {
-    res.send("invalid token");
+    return res.send("invalid token");
   }
-  console.log(payload);
+
   var user = await userModel.findOne({ _id: payload.id });
   if (user) {
-    res.send(user);
+    return res.send(user);
   } else {
-    res.send("invalid token");
+    return res.send("invalid token");
   }
 };
 

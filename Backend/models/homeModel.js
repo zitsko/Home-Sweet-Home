@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const HomeSchema = new mongoose.Schema({
-    name: {
+  /*    name: {
         type: String,
         required: true,
     },
@@ -28,6 +28,10 @@ const HomeSchema = new mongoose.Schema({
         type: Number,
         required: true
     }
+    */
+  title: { type: String, required: true },
+  text: { type: String, required: true },
+  image: { type: String, required: true },
 });
 
 const HomeModel = mongoose.model("homes", HomeSchema);
