@@ -28,31 +28,31 @@ var userLogin = async (req, res) => {
         var token = jwt.sign({ id: user._id }, "greenfield");
         res.send({ token });
       } else {
-        res.send({ msg: "wrong password" });
+        res.status(500).json({ error: "Wrong password" });
       }
     });
   } else {
-    res.send({ msg: "wrong username" });
+    res.status(500).json({ error: "Wrong username" });
   }
 };
 
 //if the token is valid, return the userdata
 var verifyUser = async (req, res) => {
+  var payload;
   if (!req.body.token) {
-    res.send({ msg: false });
+    return res.send({ msg: false });
   }
   try {
-    var payload = jwt.verify(req.body.token, "greenfield");
-    if (payload) {
-      var foundUser = await userModel.findOne({ _id: payload.id });
-      if (foundUser) {
-        res.send(foundUser);
-      } else {
-        res.send("The token is invalid");
-      }
-    }
+    payload = jwt.verify(req.body.token, "greenfield");
   } catch (err) {
-    res.send("The token is invalid");
+    return res.send("invalid token");
+  }
+
+  var user = await userModel.findOne({ _id: payload.id });
+  if (user) {
+    return res.send(user);
+  } else {
+    return res.send("invalid token");
   }
 };
 
