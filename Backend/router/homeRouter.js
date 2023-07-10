@@ -21,9 +21,9 @@ router.post("/post", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const updateHome = await HomeModel.findByIdAndUpdate(
-      req.params.id,
-      { $set: req.body },
-      { new: true }
+      {_id:req.params.id} , req.body
+      // { $set: req.body },
+      // { new: true }
     ); //set method is mongodB method the inside in the set we pass what we are going to change, the new will return the new version of our document
     res.status(200).json(updateHome);
   } catch (error) {
@@ -52,7 +52,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //get method all homes
-router.get("/homepage", async (req, res) => {
+router.get("/", async (req, res) => {
   // await verifyUser(req, res);
   try {
     const homes = await HomeModel.find();
