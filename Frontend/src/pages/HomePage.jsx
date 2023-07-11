@@ -23,6 +23,7 @@ function HomePage() {
       .then((data) => {
         console.log(data);
         window.location.reload();
+        window.alert("Successfully deleted the item.");
       })
       .catch((err) => console.log(err));
   };
