@@ -9,9 +9,23 @@ function UpdateHome() {
   const [image, setImage] = useState();
   const navigate = useNavigate();
 
+  function Update(e) {
+    e.preventDefault();
+    axios
+      .put("http://localhost:3000/homes/updateHome/" + id, {
+        title,
+        text,
+        image,
+      })
+      .then((data) => {
+        console.log(data);
+        navigate("/homes");
+      })
+      .catch((error) => console.log(error));
+  }
   useEffect(() => {
     axios
-      .get("http://localhost:3000/homes/getHome/" + id)
+      .put("http://localhost:3000/homes/getHome/" + id)
       .then((data) => {
         console.log(data);
         setTitle(data.data.title);
@@ -20,22 +34,6 @@ function UpdateHome() {
       })
       .catch((err) => console.log(err));
   }, []);
-
-const Update = (e) =>{
-  e.preventDefault();
-  axios
-      .put("http://localhost:3000/homes/updateHome/" +id, {
-        title,
-        text,
-        image,
-      })
-      .then(data => {
-        console.log(data)
-        navigate("/homes")
-      })
-      .catch(error => console.log(error));
-}
-
   return (
     <div className="d-flex vh-100 bg-primary justify-content-center align-item-center">
       <div className="w-50 bg-white rounded p-3">

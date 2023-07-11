@@ -7,6 +7,7 @@ export default function SignupLoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
   const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
