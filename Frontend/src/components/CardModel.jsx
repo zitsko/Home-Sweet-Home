@@ -1,14 +1,18 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CardModel = ({ title, text, image, onDelete, onUpdate }) => {
+  const handleUpdate = () => {
+    // Handle the navigation to the UpdateHome page
+    onUpdate();
+  };
+
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img
         variant="top"
-        src={
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/1022px-Placeholder_view_vector.svg.png"
-        }
+        src= {image}
       />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
@@ -17,9 +21,10 @@ const CardModel = ({ title, text, image, onDelete, onUpdate }) => {
         <Button variant="danger" onClick={onDelete}>
           Delete
         </Button>
-        <Button variant="primary" onClick={onUpdate}>
+        
+        <Link to={onUpdate} className="btn btn-primary" onClick={handleUpdate}>
           Edit
-        </Button>
+        </Link>
       </Card.Body>
     </Card>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardModel from "../components/CardModel";
-import UpdateHome from "./UpdateHome";
 import "bootstrap/dist/css/bootstrap.min.css";
+import UpdateHome from "./UpdateHome";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -27,6 +27,7 @@ function HomePage() {
       })
       .catch((err) => console.log(err));
   };
+
   const logout = () => {
     localStorage.clear();
     setIsLoggedin(false);
@@ -54,7 +55,7 @@ function HomePage() {
                     image={home.image}
                     text={home.text}
                     onDelete={() => handleDelete(home._id)}
-                    onUpdate={() => UpdateHome(home._id)}
+                    onUpdate={`/update/${home._id}`}
                   />
                 ))}
               </div>

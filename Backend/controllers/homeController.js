@@ -1,4 +1,4 @@
-// const express = require("express");
-// const mongoose = require("mongoose");
+const express = require("express");
+const mongoose = require("mongoose");
 
-// const HomeModel = require("../models/homeModel.js");
+const HomeModel = require("../models/homeModel.js");
