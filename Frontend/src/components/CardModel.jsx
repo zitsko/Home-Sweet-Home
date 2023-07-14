@@ -9,7 +9,7 @@ const CardModel = ({ title, text, image, onDelete, onUpdate }) => {
   };
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{maxWidth: "20rem", marginBottom: "20px"}}>
       <Card.Img
         variant="top"
         src= {image}

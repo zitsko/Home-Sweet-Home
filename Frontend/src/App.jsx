@@ -1,10 +1,10 @@
-import "./App.css";
 import SignupLoginPage from "./pages/Signup-login";
 import HomePage from "./pages/HomePage";
 import CreateHome from "./pages/CreateHome";
 import { Routes, Route } from "react-router-dom";
 import UpdateHome from "./pages/UpdateHome";
 import ContainerOutsideExample from "./components/Navbar";
+
 function App() {
   return (
     <>

@@ -1,0 +1,17 @@
+.mb-3 {
+    align-items: center;
+       width: 300px; 
+   }
+   
+   .home-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-gap: 20px;
+  }
+  
+
+   .cards-container{
+    border: solid black 5px;
+   }
+
+ 
