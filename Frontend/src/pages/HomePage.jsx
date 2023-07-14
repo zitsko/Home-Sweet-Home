@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardModel from "../components/CardModel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import UpdateHome from "./UpdateHome";
+
 
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -34,7 +34,7 @@ function HomePage() {
   };
 
   return (
-    <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
+    <div className="d-flex vh-80 bg-primary justify-content-center align-items-center cards-container">
       <div className="w-50 bg-white rounded p-3">
         <table className="table">
           <Link to="/create" className="btn btn-success">
@@ -55,7 +55,7 @@ function HomePage() {
                     image={home.image}
                     text={home.text}
                     onDelete={() => handleDelete(home._id)}
-                    onUpdate={`/update/${home._id}`}
+                    onUpdate={`/update/${home._id}`} 
                   />
                 ))}
               </div>
