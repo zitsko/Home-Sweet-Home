@@ -39,7 +39,7 @@ function CreateHome() {
             <input
               type="text"
               id="title"
-              placeholder="Enter Title"
+              placeholder="Enter Home Title"
               className="form-control"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -50,7 +50,7 @@ function CreateHome() {
             <input
               type="text"
               id="text"
-              placeholder="Enter Text"
+              placeholder="Enter Home Type"
               className="form-control"
               value={text}
               onChange={(e) => setText(e.target.value)}
@@ -61,7 +61,7 @@ function CreateHome() {
             <input
               type="text"
               id="image"
-              placeholder="Enter Image"
+              placeholder="Enter Image URL"
               className="form-control"
               value={image}
               onChange={(e) => setImage(e.target.value)}
@@ -83,7 +83,7 @@ function CreateHome() {
             <input
               type="text"
               id="location"
-              placeholder="Enter Location"
+              placeholder="Enter Home Location"
               className="form-control"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -93,7 +93,7 @@ function CreateHome() {
             <label htmlFor="description">Description</label>
             <textarea
               id="description"
-              placeholder="Enter Description"
+              placeholder="Enter Home Description"
               className="form-control"
               value={description}
               onChange={(e) => setDescription(e.target.value)}

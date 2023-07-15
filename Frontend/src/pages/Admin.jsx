@@ -37,8 +37,8 @@ function Admin() {
     <div className="d-flex vh-80 bg-primary justify-content-center align-items-center cards-container">
       <div className="w-50 bg-white rounded p-3">
         <table className="table">
-          <Link to="/create" className="btn btn-success">
-            Add +
+          <Link to="/create" className="btn btn-success add-home-btn">
+            Add a home +
           </Link>
           <thead>
             <tr>
