@@ -29,9 +29,14 @@ const HomeSchema = new mongoose.Schema({
         required: true
     }
     */
+
   title: { type: String, required: true },
   text: { type: String, required: true },
   image: { type: String, required: true },
+  price: {
+    type: Number,
+    // required: true
+}
 });
 
 const HomeModel = mongoose.model("homes", HomeSchema);
