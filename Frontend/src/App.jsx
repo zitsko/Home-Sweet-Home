@@ -1,19 +1,21 @@
 import SignupLoginPage from "./pages/Signup-login";
-import HomePage from "./pages/HomePage";
+import Admin from "./pages/Admin";
 import CreateHome from "./pages/CreateHome";
 import { Routes, Route } from "react-router-dom";
 import UpdateHome from "./pages/UpdateHome";
-import ContainerOutsideExample from "./components/Navbar";
+import Homepage from "./pages/Homepage"
+// import ContainerOutsideExample from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <ContainerOutsideExample />
+      {/* <ContainerOutsideExample /> */}
       <Routes>
         <Route path="/" element={<SignupLoginPage />} />
-        <Route path="/homes" element={<HomePage />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/create" element={<CreateHome />} />
         <Route path="/update/:id" element={<UpdateHome />} />
+        <Route path="/HomePage" element={<Homepage />} />
       </Routes>
     </>
   );

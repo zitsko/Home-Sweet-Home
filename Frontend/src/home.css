@@ -6,12 +6,12 @@
    .home-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    grid-gap: 20px;
+    grid-gap: 1.25rem;
   }
-  
 
-   .cards-container{
-    border: solid black 5px;
-   }
-
- 
+  .edit-btn{
+    margin-left: 1rem;
+     }
+ .cards-container{
+    padding: 1rem;
+ }

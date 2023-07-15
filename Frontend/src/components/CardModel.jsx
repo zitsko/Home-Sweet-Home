@@ -18,11 +18,11 @@ const CardModel = ({ title, text, image, onDelete, onUpdate }) => {
         <Card.Title>{title}</Card.Title>
         <Card.Text>{text}</Card.Text>
 
-        <Button variant="danger" onClick={onDelete}>
+        <Button variant="danger" onClick={onDelete} >
           Delete
         </Button>
         
-        <Link to={onUpdate} className="btn btn-primary" onClick={handleUpdate}>
+        <Link to={onUpdate} className="btn btn-primary edit-btn" onClick={handleUpdate}>
           Edit
         </Link>
       </Card.Body>
