@@ -12,7 +12,7 @@ function App() {
       {/* <ContainerOutsideExample /> */}
       <Routes>
         <Route path="/" element={<SignupLoginPage />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/homes" element={<Admin />} />
         <Route path="/create" element={<CreateHome />} />
         <Route path="/update/:id" element={<UpdateHome />} />
         <Route path="/HomePage" element={<Homepage />} />

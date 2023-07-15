@@ -54,6 +54,9 @@ function Admin() {
                     title={home.title}
                     image={home.image}
                     text={home.text}
+                    price={home.price}
+                    location={home.location}
+                    description={home.description}
                     onDelete={() => handleDelete(home._id)}
                     onUpdate={`/update/${home._id}`} 
                   />
