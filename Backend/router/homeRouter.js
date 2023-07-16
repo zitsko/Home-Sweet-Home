@@ -52,8 +52,10 @@ router.put("/updateHome/:id", (req, res) => {
 router.delete("/deleteHome/:id", (req, res) => {
   const id = req.params.id;
   HomeModel.findByIdAndDelete({ _id: id })
+  
     .then((homes) => res.json(homes))
     .catch((error) => res.json(error));
 });
+
 
 module.exports = router;

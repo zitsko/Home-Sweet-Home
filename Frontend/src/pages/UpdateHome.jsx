@@ -60,6 +60,7 @@ function UpdateHome() {
               className="form-control"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              // autoComplete="off" for mozilla
             />
           </div>
           <div className="mb-2">

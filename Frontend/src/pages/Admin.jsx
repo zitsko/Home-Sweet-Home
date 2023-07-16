@@ -7,12 +7,8 @@ import axios from "axios";
 
 function Admin() {
   const [homes, setHomes] = useState([]);
-  // const [isLoggedin, setIsLoggedin] = useState(false);
   const navigate = useNavigate();
-  // const [admin, setAdmin] = useState({
-  //   _id: "",
-  //   username: "",
-  // });
+  
 
   useEffect(() => {
     axios
@@ -30,6 +26,8 @@ function Admin() {
         .delete("http://localhost:3000/homes/deleteHome/" + id)
         .then((data) => {
           console.log(data);
+                  // Remove the deleted home from the state
+          setHomes((prevHomes) => prevHomes.filter((home) => home._id !== id));
         })
         .catch((err) => console.log(err));
     }
