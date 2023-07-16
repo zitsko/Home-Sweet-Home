@@ -46,26 +46,31 @@ function Admin() {
   return (
     <div className="d-flex vh-80 bg-primary justify-content-center align-items-center cards-container">
       <div className="w-50 bg-white rounded p-3">
-        <table className="table">
-          <Link to="/create" className="btn btn-success add-home-btn">
-            Add a home +
-          </Link>
-          <thead>
+        <table className="table">        
+
+          <thead className="header-container">
             <tr>
               <th className="header">
                 Welcome to HomeSweetHome for home administrators.
                 <p className="header-text">Explore,manage, and showcase your properties with ease.{" "}</p>
               </th>
-              <button
-                className="disconnect-btn"
-                onClick={() => {
-                  logout();
-                }}
-              >
-                Disconnect
-              </button>
             </tr>
           </thead>
+
+          <div className="add-disconnect-btn-container">
+            <Link to="/create" className="btn btn-success ">
+              Add a home +
+            </Link>
+            <button
+                  className="btn btn-danger "
+                  onClick={() => {
+                    logout();
+                  }}
+                >
+                  Disconnect
+                </button>
+          </div>
+
           <tbody>
             {
               <div className="home-cards">
