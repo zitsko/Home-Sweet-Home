@@ -11,7 +11,7 @@ const CardModel = ({ title, text, image, price, location, description, onDelete,
   return (
     <Card style={{ maxWidth: "20rem", marginBottom: "1rem", padding: "0.75rem" }}>
       <Card.Img variant="top" src={image} />
-      <Card.Body>
+      <Card.Body className="card-body">
         <Card.Title>{title}</Card.Title>
         <Card.Text> Type: {text}</Card.Text>
         <Card.Text>Price: {price}</Card.Text>

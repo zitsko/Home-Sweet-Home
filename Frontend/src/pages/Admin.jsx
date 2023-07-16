@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import CardModel from "../components/CardModel";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Admin() {
   const [homes, setHomes] = useState([]);
-  const [isLoggedin, setIsLoggedin] = useState(false);
+  // const [isLoggedin, setIsLoggedin] = useState(false);
+  const navigate = useNavigate();
+
+  // const [admin, setAdmin] = useState({
+  //   _id: "",
+  //   username: "",
+  // });
 
   useEffect(() => {
     axios
@@ -18,19 +23,24 @@ function Admin() {
   }, []);
 
   const handleDelete = (id) => {
-    axios
-      .delete("http://localhost:3000/homes/deleteHome/" + id)
-      .then((data) => {
-        console.log(data);
-        window.location.reload();
-        window.alert("Successfully deleted the item.");
-      })
-      .catch((err) => console.log(err));
+    const shouldDelete = window.confirm(
+      "Are you sure you want to delete this home?"
+    );
+    if (shouldDelete) {
+      axios
+        .delete("http://localhost:3000/homes/deleteHome/" + id)
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   const logout = () => {
-    localStorage.clear();
-    setIsLoggedin(false);
+    // localStorage.clear();
+    // setIsLoggedin(false);
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
@@ -42,7 +52,18 @@ function Admin() {
           </Link>
           <thead>
             <tr>
-              <th>Publish a house</th>
+              <th className="header">
+                Welcome to HomeSweetHome for home administrators.
+                <p className="header-text">Explore,manage, and showcase your properties with ease.{" "}</p>
+              </th>
+              <button
+                className="disconnect-btn"
+                onClick={() => {
+                  logout();
+                }}
+              >
+                Disconnect
+              </button>
             </tr>
           </thead>
           <tbody>
@@ -58,7 +79,7 @@ function Admin() {
                     location={home.location}
                     description={home.description}
                     onDelete={() => handleDelete(home._id)}
-                    onUpdate={`/update/${home._id}`} 
+                    onUpdate={`/update/${home._id}`}
                   />
                 ))}
               </div>
