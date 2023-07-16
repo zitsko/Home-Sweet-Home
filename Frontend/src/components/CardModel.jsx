@@ -28,7 +28,6 @@ const CardModel = ({
         <Card.Text className="card-text">Price: {price}</Card.Text>
         <Card.Text className="card-text">Location: {location}</Card.Text>
         <Card.Text className="card-text">Description: {description}</Card.Text>
-
         <Button variant="danger" onClick={onDelete}>
           Delete
         </Button>

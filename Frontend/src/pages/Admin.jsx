@@ -9,7 +9,6 @@ function Admin() {
   const [homes, setHomes] = useState([]);
   // const [isLoggedin, setIsLoggedin] = useState(false);
   const navigate = useNavigate();
-
   // const [admin, setAdmin] = useState({
   //   _id: "",
   //   username: "",

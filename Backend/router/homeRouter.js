@@ -40,9 +40,12 @@ router.put("/updateHome/:id", (req, res) => {
       title: req.body.title,
       text: req.body.text,
       image: req.body.image,
+      price: req.body.price,
+      location: req.body.location,
+      description: req.body.description,
     }
   )
-    .then((homes) => res.json(homes))
+    .then((home) => res.json(home))
     .catch((error) => res.json(error));
 });
 

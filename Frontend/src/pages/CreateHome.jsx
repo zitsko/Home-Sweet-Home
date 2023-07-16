@@ -6,9 +6,10 @@ function CreateHome() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState();
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -67,6 +68,7 @@ function CreateHome() {
               onChange={(e) => setImage(e.target.value)}
             />
           </div>
+
           <div className="mb-2">
             <label htmlFor="price">Price</label>
             <input
@@ -74,10 +76,11 @@ function CreateHome() {
               id="price"
               placeholder="Enter Price"
               className="form-control"
-              value={price} 
+              value={price}
               onChange={(e) => setPrice(Number(e.target.value))}
             />
           </div>
+
           <div className="mb-2">
             <label htmlFor="location">Location</label>
             <input

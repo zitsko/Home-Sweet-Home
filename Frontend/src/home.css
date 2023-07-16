@@ -23,14 +23,6 @@
     justify-content: center;
     gap: 3rem;
      }
-   /* .add-home-btn{
-    margin-left: 1rem;
-    margin-top: 0.5rem;
-   }
-
-   .disconnect-btn{
-    margin-right: auto;
-   } */
    
    .home-cards {
     padding: 1rem;
@@ -56,3 +48,9 @@
   color: #555;
   margin-bottom: 0.6rem;
 }
+
+/* Styles for Create Update */
+::placeholder {
+  color: gray;
+  font-size: 1.2rem
+  }
