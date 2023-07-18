@@ -34,8 +34,6 @@ function Admin() {
   };
 
   const logout = () => {
-    // localStorage.clear();
-    // setIsLoggedin(false);
     localStorage.removeItem("token");
     navigate("/");
   };

@@ -12,10 +12,7 @@ function Homepage() {
   const [homes, setHomes] = useState([]);
   const [selectedHome, setSelectedHome] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [user, setUser] = useState({
-    _id: '',
-    email: '',
-  });
+
 
 
   // useEffect(() => {
@@ -58,6 +55,11 @@ function Homepage() {
     setSelectedHome(null);
   };
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   const handleRating = (rating) => {
     // Save the rating value to your external storage (e.g., database)
     console.log("Rating saved:", rating);
@@ -70,16 +72,27 @@ function Homepage() {
           <thead>
             <tr>
               <th>Book a house</th>
+              <button
+                  className="btn btn-danger"
+                  onClick={() => {
+                    logout();
+                  }}
+                >
+                  Disconnect
+                </button>
             </tr>
           </thead>
           <tbody>
-            <div className="home-cards">
+            <div className="home-cards hover">
               {homes.map((home) => (
                 <div key={home._id} onClick={() => handleCardClick(home)}>
                   <UserCardModel
                     title={home.title}
                     image={home.image}
                     text={home.text}
+                    price={home.price}
+                    location={home.location}
+                    description={home.description}
                   />
                 </div>
               ))}
@@ -93,6 +106,9 @@ function Homepage() {
           title={selectedHome.title}
           image={selectedHome.image}
           text={selectedHome.text}
+          price={selectedHome.price}
+          location={selectedHome.location}
+          description={selectedHome.description}
           showModal={showModal}
           handleCloseModal={handleCloseModal}
         />
