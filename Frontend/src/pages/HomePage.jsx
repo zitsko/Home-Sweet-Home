@@ -1,70 +1,104 @@
 import React, { useEffect, useState } from "react";
-import CardModel from "../components/CardModel";
+import { useNavigate } from 'react-router-dom';
+import UserCardModel from "../components/UserCardModel";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
-import { Link } from "react-router-dom";
 import axios from "axios";
+import HomeModal from "../components/HomeModal"; // Use BootstrapModal
+import "../home.css";
+import "../modal.css"
 
-function Admin() {
+function Homepage() {
+  const navigate = useNavigate();
   const [homes, setHomes] = useState([]);
-  const [isLoggedin, setIsLoggedin] = useState(false);
+  const [selectedHome, setSelectedHome] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [user, setUser] = useState({
+    _id: '',
+    email: '',
+  });
 
+
+  // useEffect(() => {
+  //   if (localStorage.getItem('token')) {
+  //     axios
+  //       .post('http://localhost:3001/user/verify', {
+  //         token: localStorage.getItem('token'),
+  //       })
+  //       .then(({ data }) => {
+  //         if (data._id) {
+  //           console.log(data);
+  //           setUser(data);
+  //         } else {
+  //           navigate('/');
+  //         }
+  //       });
+  //   } else {
+  //     navigate('/');
+  //   }
+  // }, []);
+
+// get homes data 
   useEffect(() => {
     axios
       .get("http://localhost:3000/homes/")
-      .then((data) => setHomes(data.data))
-      .catch((err) => console.log(err));
-  }, []);
-
-  const handleDelete = (id) => {
-    axios
-      .delete("http://localhost:3000/homes/deleteHome/" + id)
-      .then((data) => {
+      .then(({ data }) => {
+        setHomes(data);
         console.log(data);
-        window.location.reload();
-        window.alert("Successfully deleted the item.");
       })
       .catch((err) => console.log(err));
+  }, []);
+//on card click update selected home and show the modal
+  const handleCardClick = (home) => {
+    setSelectedHome(home);
+    setShowModal(true);
+  };
+// upon hitting close, close the modal and deselect the home
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedHome(null);
   };
 
-  const logout = () => {
-    localStorage.clear();
-    setIsLoggedin(false);
+  const handleRating = (rating) => {
+    // Save the rating value to your external storage (e.g., database)
+    console.log("Rating saved:", rating);
   };
 
   return (
     <div className="d-flex vh-80 bg-primary justify-content-center align-items-center cards-container">
       <div className="w-50 bg-white rounded p-3">
         <table className="table">
-          <Link to="/create" className="btn btn-success">
-            Add +
-          </Link>
           <thead>
             <tr>
-              <th>Publish a house</th>
+              <th>Book a house</th>
             </tr>
           </thead>
           <tbody>
-            {
-              <div className="home-cards">
-                {homes.map((home, index) => (
-                  <CardModel
-                    key={index}
+            <div className="home-cards">
+              {homes.map((home) => (
+                <div key={home._id} onClick={() => handleCardClick(home)}>
+                  <UserCardModel
                     title={home.title}
                     image={home.image}
                     text={home.text}
-                    onDelete={() => handleDelete(home._id)}
-                    onUpdate={`/update/${home._id}`} 
                   />
-                ))}
-              </div>
-            }
+                </div>
+              ))}
+            </div>
           </tbody>
         </table>
       </div>
-    </div>
-  );
-}
 
-export default Admin;
+      {selectedHome && (
+        <HomeModal // Use BootstrapModal instead of HomeModal
+          title={selectedHome.title}
+          image={selectedHome.image}
+          text={selectedHome.text}
+          showModal={showModal}
+          handleCloseModal={handleCloseModal}
+        />
+      )}
+    </div>
+    );
+  }
+  
+  export default Homepage;
