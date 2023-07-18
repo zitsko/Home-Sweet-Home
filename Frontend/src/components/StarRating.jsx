@@ -8,6 +8,7 @@ import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 const StarRating = () => {
   const emptyStar = <FontAwesomeIcon icon={regularStar} />;
   const fullStar = <FontAwesomeIcon icon={solidStar} />;
+  const [isReadOnly, setIsReadOnly] = useState(false);
 
   const [rating, setRating] = useState(0);
   const [hasVoted, setHasVoted] = useState(false); // tracks if the user has voted this home already
@@ -25,6 +26,11 @@ const StarRating = () => {
 //     onSaveRating(value); // Call the prop function to save the rating externally
 //   };
 
+// this function locks the user's vote so he can't change it afterwards
+const handleToggleReadOnly = () => {
+  setIsReadOnly((prevIsReadOnly) => !prevIsReadOnly);
+};
+
   return (  
     <Rating
       emptySymbol={emptyStar}
@@ -33,11 +39,10 @@ const StarRating = () => {
       stop={5}
       step={1}
       fractions={2} // You can set the number of fractions (2 = we have half stars , 1 = full stars only)
-      readonly={false} // Set to true if you don't want to allow rating changes
-    //   onChange={handleRatingChange}
+      readonly={isReadOnly} // Set to true if you don't want to allow rating changes
+      onClick={handleToggleReadOnly} 
     />
   );
 };
 
 export default StarRating;
-
