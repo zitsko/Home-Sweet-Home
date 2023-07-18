@@ -15,7 +15,7 @@ function App() {
         <Route path="/homes" element={<Admin />} />
         <Route path="/create" element={<CreateHome />} />
         <Route path="/update/:id" element={<UpdateHome />} />
-        <Route path="/HomePage" element={<Homepage />} />
+        <Route path="/Homepage" element={<Homepage />} />
       </Routes>
     </>
   );
