@@ -56,8 +56,8 @@ export default function SignupLoginPage() {
 
   return (
     <Container
-      className="signup-login-container p-4 m-auto"
-      style={{ maxWidth: "40rem" }}
+      className="signup-login-container p-4 m-auto mt-3 d-flex flex-column justify-content-center"
+      style={{ maxWidth: "40rem",minHeight:"45rem" }}
     >
       <div>
         <h1 className="text-center">Welcome to Home Sweet Home</h1>
@@ -71,7 +71,7 @@ export default function SignupLoginPage() {
             placeholder="Enter username"
             value={username}
             onChange={handleUsernameChange}
-            className="p-3 w-80"
+            className="p-3"
           />
         </Form.Group>
         <Form.Group controlId="formPassword" className="mt-3">
@@ -81,7 +81,7 @@ export default function SignupLoginPage() {
             placeholder="Enter password"
             value={password}
             onChange={handlePasswordChange}
-            className="p-3 w-80"
+            className="p-3"
           />
         </Form.Group>
         <div className="d-flex justify-content-evenly mt-3">

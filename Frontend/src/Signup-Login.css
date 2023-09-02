@@ -1,13 +1,18 @@
-/* .signup-login-container{
-    max-width: 37.5rem;
-    border: 4px solid;
-} */
+.signup-login-container{
+    background-image: url(./photo.png);
+    background-size: cover; 
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 
-.custom-btn {
-    padding: 0.5625rem 0.9375rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border: none;
+@media (max-width: 660px) {
+    .signup-login-container {
+        background-image: url(./photo1.png);
+        background-size: cover; 
+        background-position: center center;
+        background-repeat: no-repeat;
+        }
   }
+  
 
 
