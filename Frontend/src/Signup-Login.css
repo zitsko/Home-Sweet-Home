@@ -1,0 +1,13 @@
+/* .signup-login-container{
+    max-width: 37.5rem;
+    border: 4px solid;
+} */
+
+.custom-btn {
+    padding: 0.5625rem 0.9375rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+  }
+
+

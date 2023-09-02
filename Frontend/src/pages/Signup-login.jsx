@@ -55,36 +55,53 @@ export default function SignupLoginPage() {
   };
 
   return (
-    <Container>
+    <Container
+      className="signup-login-container p-4 m-auto"
+      style={{ maxWidth: "40rem" }}
+    >
       <div>
-        <h1>Welcome to Home Sweet Home</h1>
+        <h1 className="text-center">Welcome to Home Sweet Home</h1>
       </div>
       <Form>
         {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-        <Form.Group controlId="formUsername">
-          <Form.Label>Username</Form.Label>
+        <Form.Group controlId="formUsername" className="mt-3">
+          {/* <Form.Label>Username</Form.Label> */}
           <Form.Control
             type="username"
             placeholder="Enter username"
             value={username}
             onChange={handleUsernameChange}
+            className="p-3 w-80"
           />
         </Form.Group>
-        <Form.Group controlId="formPassword">
-          <Form.Label>Password</Form.Label>
+        <Form.Group controlId="formPassword" className="mt-3">
+          {/* <Form.Label>Password</Form.Label> */}
           <Form.Control
             type="password"
-            placeholder="Password"
+            placeholder="Enter password"
             value={password}
             onChange={handlePasswordChange}
+            className="p-3 w-80"
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleSignup}>
-          Sign up
-        </Button>
-        <Button variant="primary" type="submit" onClick={handleLogin}>
-          Log in
-        </Button>
+        <div className="d-flex justify-content-evenly mt-3">
+          <Button
+            variant="primary"
+            type="submit"
+            onClick={handleSignup}
+            className="btn-lg rounded-pill"
+          >
+            Sign up
+          </Button>
+          <Button
+            variant="primary"
+            type="submit"
+            onClick={handleLogin}
+            className="btn-lg rounded-pill"
+          >
+            Log in
+          </Button>
+        </div>
       </Form>
     </Container>
   );
