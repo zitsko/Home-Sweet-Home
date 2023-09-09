@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon , } from "@fortawesome/react-fontawesome";
+import { faTrash ,faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 const CardModel = ({
   title,
@@ -28,8 +30,9 @@ const CardModel = ({
         <Card.Text className="card-text">Price: {price}</Card.Text>
         <Card.Text className="card-text">Location: {location}</Card.Text>
         <Card.Text className="card-text">Description: {description}</Card.Text>
+
         <Button variant="danger" onClick={onDelete}>
-          Delete
+          <FontAwesomeIcon icon={faTrash} size="lg" />
         </Button>
 
         <Link
@@ -37,7 +40,8 @@ const CardModel = ({
           className="btn btn-primary edit-btn"
           onClick={handleUpdate}
         >
-          Edit
+        <FontAwesomeIcon icon={faPenToSquare} size="lg" />
+          
         </Link>
       </Card.Body>
     </Card>

@@ -1,9 +1,16 @@
 
 /* Styles for Admin */
 .mb-3 {
-    align-items: center;
-       width: 300px; 
-   }
+  align-items: center;
+  width: 300px; 
+}
+
+.cards-container{
+    max-width: 1000px;
+    margin: 0 auto;
+   padding: 1rem;
+   border: 2px solid red;
+}
 
    .header{
     text-align: center;
@@ -35,9 +42,6 @@
     margin-left: 1rem;
      }
 
- .cards-container{
-    padding: 1rem;
- }
 
  /* Styles for Card Model */
  .card-title {

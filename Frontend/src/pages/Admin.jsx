@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 function Admin() {
   const [homes, setHomes] = useState([]);
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ function Admin() {
   };
 
   return (
-    <div className="d-flex vh-80 bg-primary justify-content-center align-items-center cards-container">
+    <div className="d-flex vh-80  justify-content-center align-items-center cards-container">
       <div className="w-50 bg-white rounded p-3">
         <table className="table">        
 
@@ -62,7 +63,7 @@ function Admin() {
                     logout();
                   }}
                 >
-                  Disconnect
+                  Logout
                 </button>
           </div>
 
