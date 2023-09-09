@@ -41,7 +41,7 @@ function Admin() {
 
   return (
     <div className="d-flex vh-80  justify-content-center align-items-center cards-container">
-      <div className="w-50 bg-white rounded p-3">
+      <div className=" bg-white rounded p-3">
         <table className="table">        
 
           <thead className="header-container">
