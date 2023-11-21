@@ -13,27 +13,6 @@ function Homepage() {
   const [selectedHome, setSelectedHome] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-
-
-  // useEffect(() => {
-  //   if (localStorage.getItem('token')) {
-  //     axios
-  //       .post('http://localhost:3001/user/verify', {
-  //         token: localStorage.getItem('token'),
-  //       })
-  //       .then(({ data }) => {
-  //         if (data._id) {
-  //           console.log(data);
-  //           setUser(data);
-  //         } else {
-  //           navigate('/');
-  //         }
-  //       });
-  //   } else {
-  //     navigate('/');
-  //   }
-  // }, []);
-
 // get homes data 
   useEffect(() => {
     axios
